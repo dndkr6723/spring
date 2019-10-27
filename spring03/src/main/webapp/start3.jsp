@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+오늘은 3일차 입니다.<br>
+
+<form action="insert.do">
+	아이디: <input type="text" name="id" class="id"><br>
+	패스워드: <input type="text" name="pw" class="pw"><br>
+	<input type="submit" value="입력값 체크" class="btn">
+</form>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,13 @@
+@charset "EUC-KR";
+
+.title{
+	border: 2px dotted red;	
+}
+
+.content{
+	border: 2px dotted yellow;
+}
+
+.writer{
+	border: 2px dotted blue;
+}
