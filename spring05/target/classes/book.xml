@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="book">
+
+	<select id="selectOne" parameterType="bookDto" resultMap="map"> <!-- 아랫쪽의 resultmap 의 이름에 대응 -->
+		SELECT
+		*
+		FROM bookmark
+		WHERE id = #{id}
+	</select>
+
+ 	<resultMap type="bookDto" id="map">
+		<result property="id" column="id" />	<!-- 왼쪽의 property 는 dto의 전역변수 , 오른쪽의 column은 DB의 컬럼 -->
+		<result property="name" column="name" />
+		<result property="site" column="site" />
+	</resultMap>
+
+ 	<select id="selectAll" resultMap="map">		<!-- 윗쪽의 id map 을  이쪽의  resultmap 에 대응 -->
+		SELECT * FROM bookmark
+	</select> 
+
+	<insert id="insert" parameterType="bookDto">
+		INSERT INTO bookmark
+		VALUES(#{id},#{name},#{site})
+	</insert>
+
+ 	<update id="update" parameterType="bookDto">
+		UPDATE bookmark
+		SET
+		name=#{name}
+		WHERE
+		id = #{id}
+	</update>
+
+ 	<delete id="delete" parameterType="bookDto">
+		DELETE FROM bookmark WHERE
+		id = #{id}
+	</delete> 
+	
+	
+</mapper>
