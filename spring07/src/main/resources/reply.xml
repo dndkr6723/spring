@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reply">
+
+	<resultMap type="replyDto" id="map1">
+		<result property="productId" column="productId" />	<!-- 왼쪽의 property 는 dto의 전역변수 , 오른쪽의 column은 DB의 컬럼 -->
+		<result property="content" column="content" />
+		<result property="writer" column="writer" />
+	</resultMap>
+
+	<select id="selectAll" parameterType="replyDto" resultMap="map1">
+		select * from reply where productId = #{productId}
+	</select>
+
+
+</mapper>

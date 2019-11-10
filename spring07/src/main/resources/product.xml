@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Product">
+
+	<resultMap type="ProductDto" id="map2">
+		<result property="id" column="id" />	<!-- 왼쪽의 property 는 dto의 전역변수 , 오른쪽의 column은 DB의 컬럼 -->
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="price" column="price" />
+		<result property="img" column="img" />
+	</resultMap>
+
+ 	<select id="select" parameterType="ProductDto" resultMap="map2">		<!-- 윗쪽의 id map 을  이쪽의  resultmap 에 대응 -->
+		SELECT * FROM product where id = #{id}
+	</select>
+
+	<select id="selectAll" resultMap="map2">
+		select * from product
+	</select>
+	
+</mapper>
